@@ -1,0 +1,11 @@
+.header {
+    max-width: 880px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 320px) {
+    .header {
+    max-width: 320px;
+    }
+}
