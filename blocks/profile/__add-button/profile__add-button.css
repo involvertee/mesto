@@ -2,6 +2,7 @@
   max-width: 150px;
   max-height: 50px;
   margin-top: 35px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
