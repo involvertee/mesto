@@ -1,15 +1,19 @@
 .profile__title {
-  grid-area: a;
-  margin: 0;
-  padding: 0;
-  margin-top: 22px;
-  margin-bottom: 16px;
-  margin-right: 13px;
-  color: white;
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
+  grid-area: a;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  margin-right: 13px;
+  color: white;
+  max-width: 296px;
+  align-self: end;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 320px) {

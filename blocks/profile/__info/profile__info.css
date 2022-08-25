@@ -1,11 +1,12 @@
 .profile__info {
-    display: grid;
-    grid-template-areas: "a a a b" 
+  display: grid;
+  grid-template-areas:
+    "a a a b"
     "c c c c";
 }
 @media screen and (max-width: 320px) {
-    .profile__info {
-        max-width: 282px;
-        margin: 26px auto 0;
-    }
+  .profile__info {
+    max-width: 282px;
+    margin: 26px auto 0;
+  }
 }

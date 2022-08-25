@@ -1,7 +1,10 @@
-@media screen and (max-width: 320px) {
-    .profile__container {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
+.profile__container {
+  display: flex;
 }
+
+@media screen and (max-width: 320px) {
+  .profile__container {
+    margin: 0 auto;
+    flex-direction: column;
+  }
 }
