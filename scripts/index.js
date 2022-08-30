@@ -27,3 +27,26 @@ function formSubmitHandler(evt) {
   closePopup();
 }
 form.addEventListener("submit", formSubmitHandler);
+
+//ПР5
+
+function makeNewElement(elname, ellink) { //функция создания карточки
+  const elementTemplate = document.querySelector('.element__template').content; 
+  const elementsList = document.querySelector('.elements__list');
+  // клонируем содержимое тега template
+  const newElement = elementTemplate.querySelector('.elements__item').cloneNode(true);
+  // наполняем содержимым
+  newElement.querySelector('.elements__image').src = ellink;
+  newElement.querySelector('.elements__image').alt = elname;
+  newElement.querySelector('.elements__title').textContent = elname;
+  i++;
+  // отображаем на странице
+  elementsList.append(newElement); 
+}
+
+
+i=0;
+// инициализируем все карточки
+initialCards.forEach((el) => {
+  makeNewElement(el.name, el.link); 
+});
