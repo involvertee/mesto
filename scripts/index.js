@@ -40,7 +40,7 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   userName.textContent = inputName.value;
   userInfo.textContent = inputInfo.value;
-  closePopup();
+  closePopup(popupInfo);
 }
 
 //константы с вызовом функций
