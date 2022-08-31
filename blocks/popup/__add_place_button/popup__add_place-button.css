@@ -7,6 +7,8 @@
   border: 1px solid transparent;
   border-radius: 2px;
   cursor: pointer;
+  transition: opacity 0.2s linear;
+  opacity:1;
 }
 .popup__add_place-button:hover {
   opacity: 0.6;

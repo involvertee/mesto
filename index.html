@@ -16,11 +16,11 @@
     <main class="content">
       <section class="profile">
         <div class="profile__container">
-          <img class="profile__avatar" src="./images/avatar.jpg" alt="аватар профиля" />
+          <img class="profile__avatar" src="./images/DSCF6892.jpg" alt="аватар профиля" />
           <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <h1 class="profile__title">Ася Гурзо</h1>
             <button class="profile__edit-button" type="button"></button>
-            <p class="profile__subtitle">Исследователь океана</p>
+            <p class="profile__subtitle">Знаменитая путешественница</p>
           </div>
         </div>
         <button class="profile__add-button" type="button"></button>
@@ -34,14 +34,13 @@
       <p class="footer__copyright">&copy; 2022 Ася Гурзо классная девчонка</p>
     </footer>
 
-    <div class="popup popup_info">
+    <div class="popup popup-info">
       <div class="popup__container">
         <button class="popup__close" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
         <form class="popup__form popup__form-info" name="user__form">
-          <input class="popup__input popup__input_type_name" name="user-name" value="Жак-Ив Кусто" placeholder="Имя" />
-          <input class="popup__input popup__input_type_info" name="user-info" value="Исследователь океана"
-            placeholder="О себе" />
+          <input class="popup__input popup__input_type_name" name="user-name" placeholder="Имя" />
+          <input class="popup__input popup__input_type_info" name="user-info" placeholder="О себе" />
           <button class="popup__save-button" type="submit">
             Сохранить
           </button>
@@ -49,7 +48,7 @@
       </div>
     </div>
 
-    <div class="popup popup_place">
+    <div class="popup popup-place">
       <div class="popup__container">
         <button class="popup__close popup__close_place" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
         <h2 class="popup__header">Новое место</h2>
@@ -64,6 +63,14 @@
       </div>
     </div>
 
+    <div class="popup popup-image">
+      <div class="popup-image__container">
+        <img class="popup-image__image" src="." alt="">
+      <p class="popup-image__caption">Ляляля</p>
+      <button class="popup__close popup__close_image" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
+    </div>
+  </div>
+
   </div>
 
   <template class="element__template">
@@ -75,6 +82,7 @@
           <button class="elements__like" type="button" title="Оценить фото" aria-label="Поставить лайк"></button>
         </div>
       </div>
+      <button class="delete-button" type="button"></button>
     </li>
   </template>
   <script src="./scripts/initialData.js">
