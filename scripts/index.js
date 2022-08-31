@@ -40,11 +40,11 @@ function makeNewElement(elname, ellink) {
   newElement.querySelector(".elements__image").alt = elname;
   newElement.querySelector(".elements__title").textContent = elname;
 
-  deleteButton.addEventListener("click", function (evt) {
+  deleteButton.addEventListener("click", function (evt) { //удаляем карточку
     deleteButton.closest(".elements__item").remove();
   });
 
-  const elementsLike = newElement.querySelector(".elements__like");
+  const elementsLike = newElement.querySelector(".elements__like"); //ставим лайки
   elementsLike.addEventListener("click", function (evt) {
     const eventTarget = evt.target;
     eventTarget.classList.toggle("elements__like_active");
@@ -52,7 +52,7 @@ function makeNewElement(elname, ellink) {
 
   const openImage = newElement.querySelector(".elements__image");
 
-  openImage.addEventListener("click", function (evt) {
+  openImage.addEventListener("click", function (evt) { // открываем картинку
     openPopupImg(elname, ellink);
   });
   return newElement;

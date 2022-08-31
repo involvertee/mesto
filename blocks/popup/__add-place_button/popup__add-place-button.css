@@ -1,4 +1,4 @@
-.popup__add_place-button {
+.popup__add-place-button {
   width: 100%;
   height: 50px;
   color: #fff;
@@ -9,6 +9,6 @@
   transition: opacity 0.2s linear;
   opacity:1;
 }
-.popup__add_place-button:hover {
+.popup__add-place-button:hover {
   opacity: 0.6;
 }
