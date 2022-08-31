@@ -116,7 +116,7 @@ closeButtonInfo.addEventListener("click", closePopupInfo); // закрыть р�
 addButtonPlace.addEventListener("click", openPopupPlace); // открыть добавление места
 closeButtonPlace.addEventListener("click", closePopupPlace); // закрыть добавление места
 
-formInfo.addEventListener("submit", formSubmitHandler); 
+formInfo.addEventListener("submit", formSubmitHandler);
 formPlace.addEventListener("submit", addElement);
 
 closeButtonImg.addEventListener("click", closePopupImg); //закрыть большой экран картинки
