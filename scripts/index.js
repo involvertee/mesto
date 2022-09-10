@@ -8,7 +8,6 @@ const popupImgImage = document.querySelector(".popup-image__image");
 const buttonInfoClose = document.querySelector(".popup__close");
 const buttonPlaceClose = document.querySelector(".popup__close_place");
 const buttonImgClose = document.querySelector(".popup__close_image");
-const buttonSave = document.querySelector(".popup__save-button");
 const formInfo = document.querySelector(".popup__form-info");
 const formPlace = document.querySelector(".popup__form-place");
 const nameInput = document.querySelector(".popup__input_type_name");
@@ -17,6 +16,8 @@ const placeNameInput = document.querySelector(".popup__input_type_place-name");
 const placeLinkInput = document.querySelector(".popup__input_type_place-link");
 const userName = document.querySelector(".profile__title");
 const userInfo = document.querySelector(".profile__subtitle");
+const buttonSumbitInfo = document.querySelector(".popup__submit-button-info");
+const buttonSumbitPlace = document.querySelector(".popup__submit-button-place");
 
 //функции
 function openPopup(popup) {
@@ -25,6 +26,12 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
+
+function disableButton(buttonSumbit) {
+  buttonSumbit.classList.add('popup__submit-button_disabled');
+  buttonSumbit.setAttribute('disabled', 'disabled');
+}
+
 const elementsList = document.querySelector(".elements__list");
 function makeNewElement(elname, ellink) {
   //функция создания карточки
@@ -58,9 +65,11 @@ function makeNewElement(elname, ellink) {
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  userName.textContent = inputName.value;
-  userInfo.textContent = inputInfo.value;
+  console.log('lala');
+  userName.textContent = nameInput.value;
+  userInfo.textContent = infoInput.value;
   closePopup(popupInfo);
+
 }
 
 //константы с вызовом функций
@@ -99,6 +108,7 @@ const elementAdd = function (evt) {
     placeLinkInput.value
   );
   elementsList.prepend(elementCard);
+  
   closePopup(popupPlace);
 };
 

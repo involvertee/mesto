@@ -1,0 +1,11 @@
+.popup__add-place-button_disabled {
+    border: 1px solid #000000;
+    border-radius: 2px;
+    background-color: transparent;
+    opacity: 0.2;
+    color: black;
+    cursor: pointer;
+}
+.popup__add-place-button_disabled:hover {
+    opacity: 0.2;
+}
