@@ -39,10 +39,10 @@
         <button class="popup__close" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
         <h2 class="popup__header">Редактировать профиль</h2>
         <form class="popup__form popup__form-info" name="user__form-info" novalidate>
-          <input id="popup__input_type_name" class="popup__input popup__input_type_name" name="user-name" type="text" placeholder="Имя" minlength="2" maxlength="40" required/>
-          <span class="popup__input_type_name-error popup__input-error">Вы пропустили это поле</span>
-          <input id="popup__input_type_info" class="popup__input_type_info popup__input" name="user-info" placeholder="О себе" minlength="2" maxlength="200" required/>
-          <span class="popup__input_type_info-error popup__input-error">Вы пропустили это поле</span>
+          <input id="user-input-name" class="popup__input popup__input_type_name" name="user-name" type="text" placeholder="Имя" minlength="2" maxlength="40" required/>
+          <span class="user-input-name-error popup__input-error">Вы пропустили это поле</span>
+          <input id="user-input-info" class="popup__input_type_info popup__input" name="user-info" placeholder="О себе" minlength="2" maxlength="200" required/>
+          <span class="user-input-info-error popup__input-error">Вы пропустили это поле</span>
           <button class="popup__submit-button popup__submit-button-info" type="submit">
             Сохранить
           </button>
@@ -55,11 +55,11 @@
         <button class="popup__close popup__close_place" type="button" title="Закрыть окно" aria-label="Закрыть"></button>
         <h2 class="popup__header">Новое место</h2>
         <form class="popup__form popup__form-place" name="user__form-place" novalidate>
-          <input id="popup__input_type_place-name" class="popup__input popup__input_type_place-name" type="text" name="place-name" value="" placeholder="Название" minlength="2" maxlength="30" required/>
-          <span class="popup__input_type_place-name-error popup__input-error">Вы пропустили это поле</span>
-          <input id="popup__input_type_place-link" class="popup__input popup__input_type_place-link" name="place-link" value=""
+          <input id="add-card-input-name" class="popup__input popup__input_type_place-name" type="text" name="place-name" value="" placeholder="Название" minlength="2" maxlength="30" required/>
+          <span class="add-card-input-name-error popup__input-error">Вы пропустили это поле</span>
+          <input id="add-card-input-link" class="popup__input popup__input_type_place-link" name="place-link" value=""
             placeholder="Ссылка на картинку" type="url" required/>
-            <span class="popup__input_type_place-link-error popup__input-error">Введите адрес сайта</span>
+            <span class="add-card-input-link-error popup__input-error">Введите адрес сайта</span>
           <button class="popup__submit-button popup__submit-button-place" type="submit">
             Создать
           </button>

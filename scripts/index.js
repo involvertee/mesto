@@ -22,11 +22,11 @@ const buttonSumbitPlace = document.querySelector(".popup__submit-button-place");
 //функции
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('keydown', closePopupByEscape);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('keydown', closePopupByEscape);
 }
 
 function disableButton(buttonSumbit) {
@@ -73,7 +73,7 @@ function handleProfileFormSubmit(evt) {
 
 }
 
-function closeByEscape(evt) {
+function closePopupByEscape(evt) {
   if (evt.key === 'Escape') {
       const openedPopup = document.querySelector('.popup_opened');
       closePopup(openedPopup);
@@ -127,7 +127,6 @@ const elementAdd = function (evt) {
     placeLinkInput.value
   );
   elementsList.prepend(elementCard);
-  
   closePopup(popupPlace);
 };
 
@@ -154,3 +153,5 @@ initialCards.forEach((el) => {
   newElement = makeNewElement(el.name, el.link);
   elementsList.append(newElement);
 });
+
+
