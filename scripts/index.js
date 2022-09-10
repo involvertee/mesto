@@ -22,9 +22,11 @@ const buttonSumbitPlace = document.querySelector(".popup__submit-button-place");
 //функции
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener('keydown', closeByEscape);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function disableButton(buttonSumbit) {
@@ -65,12 +67,29 @@ function makeNewElement(elname, ellink) {
 }
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  console.log('lala');
   userName.textContent = nameInput.value;
   userInfo.textContent = infoInput.value;
   closePopup(popupInfo);
 
 }
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+      const openedPopup = document.querySelector('.popup_opened');
+      closePopup(openedPopup);
+  }
+}
+
+function closePopupByBackgroundClick(popup) {
+  popup.addEventListener('click', (evt) => {
+      if (popup.classList.contains('popup_opened') && evt.target === evt.currentTarget) {
+          closePopup(popup);
+      }
+  })
+}
+
+const popupsList = Array.from(document.querySelectorAll('.popup'));
+popupsList.forEach(closePopupByBackgroundClick);
 
 //константы с вызовом функций
 const profileEdit = function () {
