@@ -26,7 +26,8 @@ function openPopup(popup) {
 }
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.addEventListener('keydown', closePopupByEscape);
+  document.removeEventListener('keydown', closePopupByEscape);
+
 }
 
 function disableButton(buttonSumbit) {
@@ -35,16 +36,19 @@ function disableButton(buttonSumbit) {
 }
 
 const elementsList = document.querySelector(".elements__list");
-function makeNewElement(elname, ellink) {
+
+function makeNewElement(elName, elLink) {
   //функция создания карточки
   const elementTemplate = document.querySelector(".element__template").content;
   const newElement = elementTemplate
     .querySelector(".elements__item")
     .cloneNode(true);
   const buttonDelete = newElement.querySelector(".delete-button");
-  newElement.querySelector(".elements__image").src = ellink;
-  newElement.querySelector(".elements__image").alt = elname;
-  newElement.querySelector(".elements__title").textContent = elname;
+  const elImage = newElement.querySelector(".elements__image");
+  const elTitle = newElement.querySelector(".elements__title")
+  elImage.src = elLink;
+  elImage.alt = elName;
+  elTitle.textContent = elName;
 
   buttonDelete.addEventListener("click", function (evt) {
     //удаляем карточку
@@ -57,20 +61,21 @@ function makeNewElement(elname, ellink) {
     eventTarget.classList.toggle("elements__like_active");
   });
 
-  const imageOpen = newElement.querySelector(".elements__image");
+  const imageOpen = elImage;
 
   imageOpen.addEventListener("click", function (evt) {
     // открываем картинку
-    popupImgOpen(elname, ellink);
+    openPopupImg(elName, elLink);
   });
   return newElement;
 }
+
+/* для инфо*/
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   userName.textContent = nameInput.value;
   userInfo.textContent = infoInput.value;
   closePopup(popupInfo);
-
 }
 
 function closePopupByEscape(evt) {
@@ -92,22 +97,28 @@ const popupsList = Array.from(document.querySelectorAll('.popup'));
 popupsList.forEach(closePopupByBackgroundClick);
 
 //константы с вызовом функций
-const profileEdit = function () {
+const editProfile = function () {
   nameInput.value = userName.textContent;
   infoInput.value = userInfo.textContent;
   openPopup(popupInfo);
 };
-const popupInfoClose = function () {
+
+const closePopupInfo = function () {
   closePopup(popupInfo);
 };
-const popupPlaceOpen = function () {
+
+const openPopupPlace = function () {
   openPopup(popupPlace);
 };
-const popupPlaceClose = function () {
+
+const closePopupPlace = function () {
+  placeNameInput.value = '';
+  placeLinkInput.value = '';
   closePopup(popupPlace);
+  disableButton(buttonSumbitPlace);
 };
 
-const popupImgOpen = function (caption, link) {
+const openPopupImg = function (caption, link) {
   //открываем картинку из карточки
   popupImgImage.src = link;
   popupImgImage.alt = caption;
@@ -115,11 +126,11 @@ const popupImgOpen = function (caption, link) {
   openPopup(popupImg);
 };
 
-const popupImgClose = function () {
+const closePopupImg = function () {
   closePopup(popupImg);
 };
 
-const elementAdd = function (evt) {
+const addElement = function (evt) {
   //добавляем карточку сами
   evt.preventDefault();
   const elementCard = makeNewElement(
@@ -128,29 +139,25 @@ const elementAdd = function (evt) {
   );
   elementsList.prepend(elementCard);
   closePopup(popupPlace);
+  evt.target.reset();
 };
 
-const elementDelete = function (evt) {
-  //удаляем карточку по клику на урну
-  evt.preventDefault();
-  evt.remove(elementCard);
-};
 
 // обработчики событий
-buttonInfoEdit.addEventListener("click", profileEdit); // открыть редактирование профиля
-buttonInfoClose.addEventListener("click", popupInfoClose); // закрыть редактирование профиля
+buttonInfoEdit.addEventListener("click", editProfile); // открыть редактирование профиля
+buttonInfoClose.addEventListener("click", closePopupInfo); // закрыть редактирование профиля
 
-buttonPlaceAdd.addEventListener("click", popupPlaceOpen); // открыть добавление места
-buttonPlaceClose.addEventListener("click", popupPlaceClose); // закрыть добавление места
+buttonPlaceAdd.addEventListener("click", openPopupPlace); // открыть добавление места
+buttonPlaceClose.addEventListener("click", closePopupPlace); // закрыть добавление места
 
 formInfo.addEventListener("submit", handleProfileFormSubmit);
-formPlace.addEventListener("submit", elementAdd);
+formPlace.addEventListener("submit", addElement);
 
-buttonImgClose.addEventListener("click", popupImgClose); //закрыть большой экран картинки
+buttonImgClose.addEventListener("click", closePopupImg); //закрыть большой экран картинки
 
 // инициализируем все карточки
 initialCards.forEach((el) => {
-  newElement = makeNewElement(el.name, el.link);
+  const newElement = makeNewElement(el.name, el.link);
   elementsList.append(newElement);
 });
 
