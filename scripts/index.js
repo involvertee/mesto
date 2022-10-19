@@ -61,9 +61,7 @@ function makeNewElement(elName, elLink) {
     eventTarget.classList.toggle("elements__like_active");
   });
 
-  const imageOpen = elImage;
-
-  imageOpen.addEventListener("click", function (evt) {
+  elImage.addEventListener("click", function (evt) {
     // открываем картинку
     openPopupImg(elName, elLink);
   });
@@ -112,10 +110,7 @@ const openPopupPlace = function () {
 };
 
 const closePopupPlace = function () {
-  placeNameInput.value = '';
-  placeLinkInput.value = '';
   closePopup(popupPlace);
-  disableButton(buttonSumbitPlace);
 };
 
 const openPopupImg = function (caption, link) {
@@ -140,6 +135,7 @@ const addElement = function (evt) {
   elementsList.prepend(elementCard);
   closePopup(popupPlace);
   evt.target.reset();
+  disableButton(buttonSumbitPlace); 
 };
 
 
